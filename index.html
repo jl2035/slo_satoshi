@@ -70,7 +70,7 @@
 		zgoščeno vrednost prejšnje transakcije in javni ključ naslednjega lastnika ter to zapiše na konec kovanca. Prejemnik lahko z 
 		verifikacijo podpisov verificira verigo lastništva.</p>
 
-		<img src="slike/img_1.png">
+		<img src="img/img_1.png">
 		 
 		<p>Problem je seveda, ker prejemnik ne more potrditi, da lastnik kovanca le tega ni že zapravil. Običajna rešitev je, da dodamo 
 		verodostojno centralno avtoriteto, ali 'mint', ki preveri vsako transakcijo, če ne gre za 'double-spending' (dvojno trošenje). 
@@ -92,7 +92,7 @@
 		članku. Časovna označba je dokaz, da so ti podatki obstajali v dotičnem trenutku, kar je očitno saj drugače nebi prišli v hash bloka.
 		Vsaka označba vsebuje prejšnjo označbo v svoji zgoščeni vrednosti, kar formira verigo, ki z vsako novo označbo bolj potrjuje ostale pred njo.</p>
 
-		<img src="slike/img_2.png">
+		<img src="img/img_2.png">
 		 
 		<h2>4. Dokaz-dela (Proof-of-work)</h2>
 		<p>Za implementacijo distribuiranega dnevniškega strežnika na p2p osnovah, potrebujemo 'proof-of-work' (slov: 'dokaz dela') sistem podoben
@@ -106,7 +106,7 @@
 		ne da bi se ponovno naredilo delo. Ker so torej bloki povezani v verigo, bi bilo za spremembo bloka potrebno oddelati tudi proof-of-work 
 		za vse bloke, ki pridejo za njim.</p>
 
-		<img src="slike/img_3.png">
+		<img src="img/img_3.png">
 		 
 		<p>Proof-of-work tudi reši problem določanja reprezentacije večinskega odločanja. Če se vzorec večine vzame po pravilu 'en IP en glas', bi utegnil 
 		biti ogrožen z nekom ki lahko alocira veliko IP naslovov. Proof-of-work deluje po načelu en-CPU-en-glas. Večinsko odločanje je predstavljeno z najdaljšo 
@@ -157,7 +157,7 @@
 		v zgoščeni vrednosti bloka. Stari bloki so torej lahko stisnjeni, tako da jim 'porežemo' veje drevesa. Ostale zgoščene vrednosti drevesa ne rabijo 
 		biti shranjene.</p>
 
-		<img src="slike/img_4.png">
+		<img src="img/img_4.png">
 		 
 		<p>Glava bloka brez transakcij znese okoli 80 bytov. Če prepostavljamo, da se bloki generirajo vsakih 10 minut: 80 bajtov * 6 * 24 * 365 = 4,2 MB leto. 
 		Z računalniškimi sistemi, ki se navadno prodajajo z 2GB spomina (2008) in Moore-ov zakon predvideva rast 1.2GB na leto, hramba podatkov nebi smela 
@@ -169,7 +169,7 @@
 		katerem je vsebovana. Transakcijo lahko preveri, tako da jo poveže z njenim mestom v verigi, kar mu pove, da jo je to vozlišče sprejelo, bloki dodani 
 		kasneje pa potrjujejo, da jo je sprejelo tudi omrežje.</p>
 
-		<img src="slike/img_5.png">
+		<img src="img/img_5.png">
 		 
 		<p>Tako torej je verifikacija zanesljiva dokler poštena vozlišča kontrolirajo omrežje. Omrežje pa je bolj ranjivo, če ima napadalec večino CPU moči. Ker 
 		vozlišča lahko verificirajo transakcije sama, bi lahko napadalec ponaredil transakcije, vsaj tako dolgo doker ima večino moči v omrežju. Ena strategija 
@@ -181,7 +181,7 @@
 		ali združiti, transakcije lahko vsebujejo več vhodov in izhodov. Normalno bo lahko en sam vhod iz večje predhodne transakcije ali več vhodov, torej 
 		združene manjše vrednosti, in največ dva izhoda. En za plačilo, drug za vračilo razlike nazaj plačniku.</p>
 
-		<img src="slike/img_6.png">
+		<img src="img/img_6.png">
 		 
 		<p>Transakcije so odvisne od nekaj predhodnih transakcij in te so odvisne še od veliko večih. Pridobivanje samostojne kopije celotne zgodovine transakcij 
 		ni potrebno.</p>
@@ -192,7 +192,7 @@
 		vzdržujemo javne ključe anonimne. Javnost vidi, da je nekdo poslal denar nekomu, vendar nima informacij, da bi povezala transakcije s komerkoli. 
 		To je podoben nivo informiranja kot pri borzah, kjer so čas in količina posameznih poslov javna, ne podajo pa informacij kdo so vpletene osebe.</p>
 		 
-		<img src="slike/img_7.png">
+		<img src="img/img_7.png">
 		 
 		<p>Kot dodatni varnostni ukrep, se naj za vsako transakcijo uprabi drug par javnega in zasebnega ključa. Nekatere povezave med transakcijami so še vedno 
 		neizogibne z več-vhodnimi transakcijami, katere razkrivajo, da imajo njihovi vhodi istega lastnika. Obstaja tveganje, v primeru, da je javni ključ 
@@ -216,7 +216,7 @@
 		<span class="italic">q</span> = verjetnost, da napadalec najde naslednji blok <br>
 		<span class="italic">qz</span> = verjetnost, da bo napadalec kadarkoli ujel verigo, če je 'z' blokov zadaj</p>
 
-		<img src="slike/enacba_1.png">
+		<img src="img/enacba_1.png">
 
 		<p>Torej po predpostavki, <span class="italic">p &gt; q</span> se verjetnost zmanjšuje eksponentno, ko se povečuje število blokov, kolikor zaostaja. Če mu torej 
 		z majhno verjetnostjo (sreča) ne uspe že na začetku, se njegove možnosti drastično zmanjšujejo z vsakim novim blokom.</p>
@@ -232,16 +232,16 @@
 		napredka, vendar ob predpostavki, da so poštena vozlišča rabila pričakovano povprečno količino časa za rešitev bloka, bo napadalčev potencialni napredek 
 		Poissonova porazdelitev s pričakovano vrednostjo:</p>
 
-		<img src="slike/enacba_2.png">
+		<img src="img/enacba_2.png">
 		 
 		<p>Da dobimo verjetnost napadalca, da dohiti pošteno verigo, pomnožimo Poissonovo gostoto za vsak korak, ki bi ga moral nadoknaditi z verjetnostjo, da dohiti 
 		od dane točke/situacije:</p>
 		 
-		<img src="slike/enacba_3.png">
+		<img src="img/enacba_3.png">
 
 		<p>Uredimo, da se izognemo seštevanju neskončnega repa distribucije...</p>
 		 
-		<img src="slike/enacba_4.png">
+		<img src="img/enacba_4.png">
 		 
 		<p>Pretvorjeno v C...</p>
 <pre>
