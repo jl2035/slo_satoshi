@@ -253,7 +253,8 @@ double AttackerSuccessProbability(double q, int z)
 	double sum = 1.0; 
 	int i, k;
 	for (k = 0; k &lt;= z; k++) 
-	{   double poisson = exp(-lambda); 
+	{
+		double poisson = exp(-lambda); 
 		for (i = 1; i &lt;= k; i++)    poisson *= lambda / i; 
 		sum -= poisson * (1 - pow(q / p, z - k));  
 	} 
